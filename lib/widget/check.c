@@ -76,7 +76,7 @@ check_callback (Widget * w, Widget * sender, widget_msg_t msg, int parm, void *d
         c->state ^= C_BOOL;
         c->state ^= C_CHANGE;
         send_message (w, sender, MSG_FOCUS, ' ', data);
-        send_message (WIDGET (w)->owner, w, MSG_NOTIFY, 0, NULL);
+        send_message (w->owner, w, MSG_NOTIFY, 0, NULL);
         return MSG_HANDLED;
 
     case MSG_CURSOR:
