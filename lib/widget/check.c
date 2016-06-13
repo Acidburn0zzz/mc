@@ -80,14 +80,14 @@ check_callback (Widget * w, Widget * sender, widget_msg_t msg, int parm, void *d
         return MSG_HANDLED;
 
     case MSG_CURSOR:
-        widget_move (c, 0, 1);
+        widget_move (w, 0, 1);
         return MSG_HANDLED;
 
     case MSG_FOCUS:
     case MSG_UNFOCUS:
     case MSG_DRAW:
         widget_selectcolor (w, msg == MSG_FOCUS, FALSE);
-        widget_move (c, 0, 0);
+        widget_move (w, 0, 0);
         tty_print_string ((c->state & C_BOOL) ? "[x] " : "[ ] ");
         hotkey_draw (w, c->text, msg == MSG_FOCUS);
         return MSG_HANDLED;
